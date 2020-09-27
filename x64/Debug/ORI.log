@@ -1,0 +1,107 @@
+﻿ORI.obj : error LNK2019: símbolo externo não resolvido, "public: void __cdecl cv::Mat::copyTo(class cv::debug_build_guard::_OutputArray const &)const " (?copyTo@Mat@cv@@QEBAXAEBV_OutputArray@debug_build_guard@2@@Z), referenciado na função "public: class cv::Mat __cdecl PreProcessing::pre_process(class cv::Mat)" (?pre_process@PreProcessing@@QEAA?AVMat@cv@@V23@@Z)
+ORI.obj : error LNK2019: símbolo externo não resolvido, "public: virtual bool __cdecl cv::VideoCapture::read(class cv::debug_build_guard::_OutputArray const &)" (?read@VideoCapture@cv@@UEAA_NAEBV_OutputArray@debug_build_guard@2@@Z), referenciado na função "public: __cdecl ReadVideo::ReadVideo(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0ReadVideo@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+ORI.obj : error LNK2019: símbolo externo não resolvido, "public: virtual void __cdecl cv::VideoWriter::write(class cv::debug_build_guard::_InputArray const &)" (?write@VideoWriter@cv@@UEAAXAEBV_InputArray@debug_build_guard@2@@Z), referenciado na função "public: __cdecl ReadVideo::ReadVideo(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0ReadVideo@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+ORI.obj : error LNK2019: símbolo externo não resolvido, "void __cdecl cv::medianBlur(class cv::debug_build_guard::_InputArray const &,class cv::debug_build_guard::_OutputArray const &,int)" (?medianBlur@cv@@YAXAEBV_InputArray@debug_build_guard@1@AEBV_OutputArray@31@H@Z), referenciado na função "public: class cv::Mat __cdecl PreProcessing::pre_process(class cv::Mat)" (?pre_process@PreProcessing@@QEAA?AVMat@cv@@V23@@Z)
+ORI.obj : error LNK2019: símbolo externo não resolvido, "void __cdecl cv::adaptiveThreshold(class cv::debug_build_guard::_InputArray const &,class cv::debug_build_guard::_OutputArray const &,double,int,int,int,double)" (?adaptiveThreshold@cv@@YAXAEBV_InputArray@debug_build_guard@1@AEBV_OutputArray@31@NHHHN@Z), referenciado na função "public: class cv::Mat __cdecl PreProcessing::pre_process(class cv::Mat)" (?pre_process@PreProcessing@@QEAA?AVMat@cv@@V23@@Z)
+ORI.obj : error LNK2019: símbolo externo não resolvido, "void __cdecl cv::cvtColor(class cv::debug_build_guard::_InputArray const &,class cv::debug_build_guard::_OutputArray const &,int,int)" (?cvtColor@cv@@YAXAEBV_InputArray@debug_build_guard@1@AEBV_OutputArray@31@HH@Z), referenciado na função "public: __cdecl ReadVideo::ReadVideo(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0ReadVideo@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+C:\Users\Mathias\Documents\Faculdade\2020\2020-2\Projeto\ORI\x64\Debug\ORI.exe : fatal error LNK1120: 6 externo não resolvidos
+
+Resumo do Desempenho do Projeto:
+      351 ms C:\Users\Mathias\Documents\Faculdade\2020\2020-2\Projeto\ORI\ORI.vcxproj   1 chamadas
+                351 ms Build                                      1 chamadas
+
+Resumo do Desempenho do Destino:
+        0 ms _BuildGenerateSourcesAction                1 chamadas
+        0 ms AssignTargetPaths                          1 chamadas
+        0 ms AfterBuildGenerateSources                  1 chamadas
+        0 ms AfterBuildGenerateSourcesEvent             1 chamadas
+        0 ms BuildGenerateSources                       1 chamadas
+        0 ms BuildCompileTraverse                       1 chamadas
+        0 ms BeforeClCompile                            1 chamadas
+        0 ms ComputeCLInputPDBName                      1 chamadas
+        0 ms FindReferenceAssembliesForReferences       1 chamadas
+        0 ms PrepareResourceNames                       1 chamadas
+        0 ms WarnCompileDuplicatedFilename              1 chamadas
+        0 ms MakeDirsForCl                              1 chamadas
+        0 ms SelectClCompile                            1 chamadas
+        0 ms CreateCustomManifestResourceNames          1 chamadas
+        0 ms AfterClCompile                             1 chamadas
+        0 ms AfterMidl                                  1 chamadas
+        0 ms _ClCompile                                 1 chamadas
+        0 ms MakeDirsForResourceCompile                 1 chamadas
+        0 ms AfterResourceCompile                       1 chamadas
+        0 ms AfterBuildCompileEvent                     1 chamadas
+        0 ms _BuildCompileAction                        1 chamadas
+        0 ms BuildCompile                               1 chamadas
+        0 ms BuildLinkTraverse                          1 chamadas
+        0 ms ComputeLegacyManifestEmbedding             1 chamadas
+        0 ms BeforeLink                                 1 chamadas
+        0 ms ComputeRCOutputs                           1 chamadas
+        0 ms ComputeRCGeneratedLinkInputs               1 chamadas
+        0 ms ComputeCLOutputs                           1 chamadas
+        0 ms ComputeCLGeneratedLinkInputs               1 chamadas
+        0 ms ComputeLinkInputsFromProject               1 chamadas
+        0 ms ComputeManifestInputsTargets               1 chamadas
+        0 ms BeforeResourceCompile                      1 chamadas
+        0 ms ComputeMIDLGeneratedCompileInputs          1 chamadas
+        0 ms _Midl                                      1 chamadas
+        0 ms _Xsd                                       1 chamadas
+        0 ms SetTelemetryEnvironmentVariables           1 chamadas
+        0 ms _PrepareForBuild                           1 chamadas
+        0 ms _PrepareForReferenceResolution             1 chamadas
+        0 ms BeforeResolveReferences                    1 chamadas
+        0 ms AssignProjectConfiguration                 1 chamadas
+        0 ms _SplitProjectReferencesByFileExistence     1 chamadas
+        0 ms _GetProjectReferenceTargetFrameworkProperties   1 chamadas
+        0 ms PrepareProjectReferences                   1 chamadas
+        0 ms GetFrameworkPaths                          1 chamadas
+        0 ms GetReferenceAssemblyPaths                  1 chamadas
+        0 ms PreLinkEvent                               1 chamadas
+        0 ms GetResolvedWinMD                           1 chamadas
+        0 ms MakeDirsForMidl                            1 chamadas
+        0 ms DoLinkOutputFilesMatch                     1 chamadas
+        0 ms ResolveSDKReferences                       1 chamadas
+        0 ms SetCABuildNativeEnvironmentVariables       1 chamadas
+        0 ms ResolveAssemblyReferences                  1 chamadas
+        0 ms CustomBuild                                1 chamadas
+        0 ms SelectCustomBuild                          1 chamadas
+        0 ms _SelectedFiles                             1 chamadas
+        0 ms PreBuildEvent                              1 chamadas
+        0 ms ExpandSDKReferences                        1 chamadas
+        0 ms BuildGenerateSourcesTraverse               1 chamadas
+        0 ms BeforeBuildGenerateSources                 1 chamadas
+        0 ms ResolveReferences                          1 chamadas
+        0 ms AfterResolveReferences                     1 chamadas
+        0 ms MakeDirsForLink                            1 chamadas
+        1 ms SplitResourcesByCulture                    1 chamadas
+        1 ms _CheckWindowsSDKInstalled                  1 chamadas
+        1 ms FixupCLCompileOptions                      1 chamadas
+        1 ms ComputeCustomBuildOutput                   1 chamadas
+        1 ms CopyFileToFolders                          1 chamadas
+        1 ms ResolveProjectReferences                   1 chamadas
+        1 ms ComputeLinkSwitches                        1 chamadas
+        1 ms _ResourceCompile                           1 chamadas
+        1 ms ComputeManifestGeneratedLinkerInputs       1 chamadas
+        1 ms _CheckForInvalidConfigurationAndPlatform   1 chamadas
+        2 ms ComputeReferenceCLInput                    1 chamadas
+        2 ms InitializeBuildStatus                      1 chamadas
+        3 ms PrepareForBuild                            1 chamadas
+        8 ms SetBuildDefaultEnvironmentVariables        1 chamadas
+       28 ms ClCompile                                  1 chamadas
+      296 ms Link                                       1 chamadas
+
+Resumo do Desempenho da Tarefa:
+        0 ms Message                                    2 chamadas
+        0 ms SetEnv                                     8 chamadas
+        0 ms AssignProjectConfiguration                 1 chamadas
+        0 ms MSBuild                                    1 chamadas
+        0 ms WriteLinesToFile                           1 chamadas
+        0 ms AssignTargetPath                           4 chamadas
+        1 ms AssignCulture                              1 chamadas
+        1 ms MakeDir                                    7 chamadas
+        1 ms CheckVCToolsetVersion                      1 chamadas
+        1 ms GetOutOfDateItems                          3 chamadas
+        1 ms Touch                                      1 chamadas
+        1 ms ReadLinesFromFile                          1 chamadas
+       27 ms CL                                         1 chamadas
+      296 ms Link                                       1 chamadas

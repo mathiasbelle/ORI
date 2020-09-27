@@ -1,0 +1,2 @@
+C:\Users\Mathias\Documents\Faculdade\2020\2020-2\Projeto\ORI\x64\Debug\ORI.exe
+C:\Users\Mathias\Documents\Faculdade\2020\2020-2\Projeto\ORI\x64\Debug\ORI.pdb
