@@ -39,92 +39,94 @@ public:
 		//imwrite("img_gauss.png", thresholdFrame);
 	}
 
-	Mat edge_detectors(Mat blurredFrame) {
-		Mat thresholdFrame;
-		// CANNY
-		//Canny(blurredFrame, thresholdFrame, 20, 60, 3);
-		// LAPLACIAN
-		//Laplacian(blurredFrame, thresholdFrame, CV_16S, 3, 1, 0, BORDER_DEFAULT);
-		// SOBEL
-		//Mat grad_x, grad_y;
-		//Mat abs_grad_x, abs_grad_y;
-		//Sobel(blurredFrame, grad_x, CV_16S, 1, 0, 3, 1, 0, BORDER_DEFAULT);
-		//Sobel(blurredFrame, grad_y, CV_16S, 0, 1, 3, 1, 0, BORDER_DEFAULT);
-		////// converting back to CV_8U
-		//convertScaleAbs(grad_x, abs_grad_x);
-		//convertScaleAbs(grad_y, abs_grad_y);
-		//addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, thresholdFrame);
+	//Mat edge_detectors(Mat blurredFrame) {
+	//	Mat thresholdFrame;
+	//	// CANNY
+	//	//Canny(blurredFrame, thresholdFrame, 20, 60, 3);
+	//	// LAPLACIAN
+	//	//Laplacian(blurredFrame, thresholdFrame, CV_16S, 3, 1, 0, BORDER_DEFAULT);
+	//	// SOBEL
+	//	//Mat grad_x, grad_y;
+	//	//Mat abs_grad_x, abs_grad_y;
+	//	//Sobel(blurredFrame, grad_x, CV_16S, 1, 0, 3, 1, 0, BORDER_DEFAULT);
+	//	//Sobel(blurredFrame, grad_y, CV_16S, 0, 1, 3, 1, 0, BORDER_DEFAULT);
+	//	////// converting back to CV_8U
+	//	//convertScaleAbs(grad_x, abs_grad_x);
+	//	//convertScaleAbs(grad_y, abs_grad_y);
+	//	//addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, thresholdFrame);
 
-	}
+	//}
 
 	// Apply the Selective Search algorithm on the input frame
 	// Return the frame with squares on the detected objects
-	Mat selective_search(Mat frame) {
-		
-		clock_t start, end;
-		start = clock();
-		Mat crop_rect(frame, Rect(35, 90, 1180, 630));
-		crop_rect.copyTo(frame);
-		// speed-up using multithreads
-		setUseOptimized(true);
-		setNumThreads(8);
+	//vector<Rect> selective_search(Mat frame) {
+	//	
+	//	clock_t start, end;
+	//	start = clock();
+	//	Mat crop_rect(frame, Rect(35, 90, 1180, 630));
+	//	crop_rect.copyTo(frame);
+	//	medianBlur(frame, frame, 7);
+	//	// speed-up using multithreads
+	//	//setUseOptimized(true);
+	//	//setNumThreads(4);
 
-		// read image
-		// resize image
-		int newHeight = 200;
-		int newWidth = frame.cols * newHeight / frame.rows;
-		resize(frame, frame, Size(newWidth, newHeight));
+	//	// read image
+	//	// resize image
+	//	//int newHeight = 200;
+	//	//int newWidth = frame.cols * newHeight / frame.rows;
+	//	//resize(frame, frame, Size(newWidth, newHeight));
 
-		
+	//	
 
-		// create Selective Search Segmentation Object using default parameters
-		Ptr<SelectiveSearchSegmentation> ss = createSelectiveSearchSegmentation();
-		// set input image on which we will run segmentation
-		ss->setBaseImage(frame);
-		ss->switchToSelectiveSearchQuality();
-		
-		// if argument is neither f nor q print help message
+	//	// Creates selective search
+	//	Ptr<SelectiveSearchSegmentation> selective_search = createSelectiveSearchSegmentation();
+	//	// Set input image
+	//	selective_search->setBaseImage(frame);
+	//	// Select single strategy, with k = 850, its faster, and produces less, but more important, results
+	//	selective_search->switchToSingleStrategy(850);
+	//	
+	//	// creates a Rect vector to store the ractangles that selective search finds
+	//	vector<Rect> rects;
+	//	selective_search->process(rects);
+	//	std::cout << "Numero de regioes: " << rects.size() << std::endl;
+	//	// Sorts the vector, to have the rects with the biggest area first
+	//	sort(rects.begin(), rects.end(), [](const Rect& left, const Rect& right) {
+	//		return left.area() > right.area();
+	//		}
+	//	);
+	//	// Removes the rect that encompasses the whole image
+	//	rects.erase(rects.begin());
 
-		// run selective search segmentation on input image
-		std::vector<Rect> rects;
-		ss->process(rects);
-		std::cout << "Total Number of Region Proposals: " << rects.size() << std::endl;
+	//	Mat imOut = frame.clone();
 
-		// number of region proposals to show
-		int numShowRects = 100;
-		// increment to increase/decrease total number
-		// of reason proposals to be shown
-		int increment = 50;
-
-		Mat imOut = frame.clone();
-
-		// itereate over all the region proposals
-		for (int i = 0; i < rects.size(); i++) {
-			if (i < numShowRects) {
-				rectangle(imOut, rects[i], Scalar(0, 255, 0));
-			} else {
-				break;
-			}
-		}
-		end = clock();
-		double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
-		cout << "Tempo da funcao: " << fixed << time_taken << setprecision(5) << endl;
-		return imOut;
-	}
+	//	// itereate over all the region proposals
+	//	for (int i = 0; i < rects.size(); i++) {
+	//		rectangle(imOut, rects[i], Scalar(0, 255, 0));
+	//	}
+	//	imwrite("imagem.png", imOut);
+	//	end = clock();
+	//	double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
+	//	//cout << "Tempo da segmentacao: " << fixed << time_taken << setprecision(5) << endl;
+	//	return rects;
+	//}
 
 	Mat pre_process(Mat frame) {
-		cvtColor(frame, inputFrame, COLOR_BGR2GRAY);
-		Mat crop_rect(inputFrame, Rect(35, 90, 1180, 630));
+		//cvtColor(frame, inputFrame, COLOR_BGR2GRAY);
+		Mat crop_rect(frame, Rect(35, 90, 1180, 630));
 		Mat cropped;
 		crop_rect.copyTo(cropped);
 
 		// ========================================== LIMIARIZACAO ORIGINAL
-		//imwrite("cropped.png", cropped);
+		imwrite("orignal.png", frame);
+		imwrite("cropped.png", cropped);
 		//imwrite("img.png", inputFrame);
-		Mat blurredFrame;
+		Mat blurred_frame;
 		//GaussianBlur(inputFrame, blurredFrame, Size(11, 11), 0, 0);
-		medianBlur(cropped, blurredFrame, 11);
-		Mat thresholdFrame;
+		medianBlur(cropped, blurred_frame, 7);
+		imwrite("blurred_frame.png", blurred_frame);
+
+		return blurred_frame;
+		//Mat thresholdFrame;
 		// CANNY
 		//Mat kernel_laplace = (Mat_<float>(3, 3) <<
 		//	1, 1, 1,
@@ -176,15 +178,15 @@ public:
 		//adaptiveThreshold(blurredFrame, thresholdFrame, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY_INV, 11, 2);
 		//adaptiveThreshold(blurredFrame, thresholdFrame, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY_INV, 11, 2);
 		//adaptiveThreshold(thresholdFrame, thresholdFrame, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY_INV, 11, 2);
-		int kernel_size = 3;
-		Mat kernel = Mat::ones(kernel_size, kernel_size, CV_32F) / (float)(3 * 3);
-		Mat morph;
+		//int kernel_size = 3;
+		//Mat kernel = Mat::ones(kernel_size, kernel_size, CV_32F) / (float)(3 * 3);
+		//Mat morph;
 		//imwrite("close.png", thresholdFrame);
 		//morphologyEx(thresholdFrame, thresholdFrame, MORPH_OPEN, kernel);
-		kernel = Mat::ones(11, 11, CV_32F) / (float)(11 * 11);
+		//kernel = Mat::ones(11, 11, CV_32F) / (float)(11 * 11);
 		
 		//morphologyEx(thresholdFrame, thresholdFrame, MORPH_CLOSE, kernel);
-		kernel = Mat::ones(3, 3, CV_32F) / (float)(3 * 3);
+		//kernel = Mat::ones(3, 3, CV_32F) / (float)(3 * 3);
 		//morphologyEx(thresholdFrame, thresholdFrame, MORPH_OPEN, kernel);
 		//morphologyEx(thresholdFrame, thresholdFrame, MORPH_CLOSE, kernel);
 		//morphologyEx(thresholdFrame, thresholdFrame, MORPH_CLOSE, kernel);
@@ -235,7 +237,7 @@ public:
 		//imwrite("img_gauss.png", im_floodfill_inv);
 
 
-		return thresholdFrame;
+		//return thresholdFrame;
 
 		//return thresholdFrame;
 		// ==================================================

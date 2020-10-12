@@ -6,13 +6,23 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/tracking.hpp>
 #include "PreProcessing.h"
+#include "Segmentation.h"
+
 using namespace std;
 using namespace cv;
+
 
 class ReadVideo {
 private:
 	Mat inputFrame;
 	Mat outputFrame;
+
+	struct TrackerElement {
+		Ptr<Tracker> tracker;
+		Rect2d bbox;
+		bool status;
+	};
+
 public:
 	ReadVideo(string videoName) {
 		cout << "VideoName: " << videoName<<endl;
@@ -37,28 +47,107 @@ public:
 			cout << "Video de saida aberto com sucesso" << endl;
 		}
 		Mat preprocessed_frame;
-		PreProcessing variavel;
+		vector<Rect>rectangles;
+		PreProcessing pre_processing;
+		Segmentation segmentation;
+
+		
+		//Ptr<Tracker> tracker = TrackerKCF::create();
+		// Cria o multi tracker
+		//Ptr<MultiTracker> multi_tracker = cv::MultiTracker::create();
+		MultiTracker multi_tracker;
+		
+
 		int count = 0;
+		int frame_counter = 0;
+		bool tracker_update_status = false;
+		//cout << "Primeiro status: " << tracker_update_status;
+		inputVideo.read(frame);
+		Mat im_out;
+		//im_out = pre_processing.pre_process(frame);
+		//imwrite("Preprocessed.png", im_out);
+		//Mat frame_pre_processed;
+		preprocessed_frame = pre_processing.pre_process(frame);
+		rectangles = segmentation.selective_search(preprocessed_frame);
+		//vector<Ptr<Tracker>> algorithms;
+		vector<Rect2d> objects;
+		//vector<Ptr<Tracker>> tracker_vector;
+		vector<TrackerElement> tracker_vector;
+		TrackerElement tracker_element;
+		// Inicia as structs dos trackers
+		for (int i = 0; i < rectangles.size(); i++) {
+			tracker_element.tracker = TrackerKCF::create();
+			tracker_element.bbox = Rect2d(rectangles[i]);
+			tracker_vector.push_back(tracker_element);
+			//tracker_vector.push_back(TrackerKCF::create());
+			//algorithms.push_back(TrackerKCF::create());
+			//objects.push_back(rectangles[i]);
+		}
+		// Inicia os rastreadores
+		for (int i = 0; i < tracker_vector.size(); i++) {
+			tracker_vector[i].tracker->init(preprocessed_frame, rectangles[i]);
+		}
+		//objects.push_back(rectangles[0]);
+		//objects.push_back(rectangles[1]);
+		//multi_tracker.add(algorithms, preprocessed_frame, objects);
+
+		/*for (int i = 0; i < rectangles.size(); i++) {
+			multi_tracker->add(TrackerKCF::create(), preprocessed_frame, rectangles[i]);
+		}*/
+
+		//for (unsigned i = 0; i < multi_tracker.getObjects().size(); i++) {
+		//	//tracker_update_status = multi_tracker->getObjects()[i];
+		//	//cout << "Status: " << tracker_update_status << endl;
+		//	im_out = preprocessed_frame.clone();
+		//	rectangle(im_out, multi_tracker.getObjects()[i], Scalar(0, 255, 0), 2, 1);
+		//}
+		//imwrite("imagem3.png", im_out);
+		Rect2d new_bbox;
+		vector<Rect2d> returned_rects;
+		//Mat im_out;
 		do { // Processa o video, loop principal
 			inputVideo.read(frame);
-			//Range rows(1, 100);
-			//Range cols(1, 100);
-			// Retangulo para cortar a imagem (tirar o logo e o ROV)
-			/*Mat crop_rect(frame, Rect(35, 90, 1180, 630));
-			Mat cropped;
-			crop_rect.copyTo(cropped);
-			imwrite("cropped.png", cropped);*/
-			//PreProcessing variavel(frame);
-			//preprocessed_frame = variavel.pre_process(frame);
-			preprocessed_frame = variavel.selective_search(frame);
+			
+			preprocessed_frame = pre_processing.pre_process(frame);
+			rectangles = segmentation.selective_search(preprocessed_frame);
+			//if (frame_counter == 0) {
+			//	for (int i = 0; i < rectangles.size(); i++) {
+			//		multi_tracker->add(TrackerKCF::create(), frame, Rect2d(rectangles[i]));
+			//	}
+			//}
+
+			//tracker_update_status = multi_tracker.update(preprocessed_frame, returned_rects);
+			for (int i = 0; i < tracker_vector.size(); i++) {
+				tracker_update_status = tracker_vector[i].tracker->update(preprocessed_frame, new_bbox);
+				tracker_vector[i].status = tracker_update_status;
+				if (tracker_update_status) {
+					tracker_vector[i].bbox = new_bbox;
+				}
+				
+				cout << "Tracker "<< tracker_vector[i].bbox.area()<<" | Status: " << tracker_vector[i].status << endl;
+			}
+			//cout << "Status: " << tracker_update_status << endl;
+
+			//for (unsigned i = 0; i < multi_tracker.getObjects().size(); i++) {
+			//for (unsigned i = 0; i < returned_rects.size(); i++) {
+			//	//tracker_update_status = multi_tracker->getObjects()[i];
+			//	//cout << "Status: " << tracker_update_status << endl;
+			//	im_out = preprocessed_frame.clone();
+			//	//rectangle(im_out, multi_tracker.getObjects()[i], Scalar(0, 255, 0), 2, 1);
+			//	rectangle(im_out, returned_rects[i], Scalar(0, 255, 0), 2, 1);
+			//}
+			//imwrite("imagem2.png", im_out);
 			//cvtColor(frame, preprocessed_frame, COLOR_BGR2GRAY);
 			// Writes frame to video
-			output_video.write(preprocessed_frame);
+			//output_video.write(preprocessed_frame);
 			//output_teste.write(frame);
-			count++;
+			//imshow("MultiTracker", frame);
+			//count=600;
+			frame_counter++;
 			//cout << count << endl;
 
 		}while(!frame.empty() && count != 600);
+
 		inputVideo.release();
 		output_video.release();
 		cout << "Fim do loop" << endl;

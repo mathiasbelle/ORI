@@ -14,8 +14,13 @@ using namespace std;
 int main() {
 	//ReadVideo videozin("C:\\Users\\Mathias\\Videos\\video.mp4");
 	//cout << CV_VERSION;
-	//ReadVideo videozin("Okeanos_Explorer_ROV_Dive_July_08_2019_Bottom_Hour_1.mp4");
-	ReadVideo videozin("Okeanos_Cortado.mp4");
+	
+	setUseOptimized(true);
+	setNumThreads(4);
+	ReadVideo videozin("Okeanos_Explorer_ROV_Dive_July_08_2019_Bottom_Hour_1.mp4");
+	//ReadVideo videozin("Okeanos_Cortado.mp4");
+	//ReadVideo videozin("Okeanos_Cortado2.mp4");
+	//ReadVideo videozin("Okeanos_Cortado.mp4");
 
 	return 0;
 }
