@@ -122,9 +122,12 @@ public:
 		//imwrite("img.png", inputFrame);
 		Mat blurred_frame;
 		//GaussianBlur(inputFrame, blurredFrame, Size(11, 11), 0, 0);
-		medianBlur(cropped, blurred_frame, 7);
-		imwrite("blurred_frame.png", blurred_frame);
+		//medianBlur(cropped, blurred_frame, 7);
+		blur(cropped, blurred_frame, Size(3, 3));
+		
+		//imwrite("blurred_frame.png", blurred_frame);
 
+		//return cropped;
 		return blurred_frame;
 		//Mat thresholdFrame;
 		// CANNY

@@ -19,7 +19,8 @@ public:
 	Segmentation() {
 
 	}
-	vector<Rect> selective_search(Mat frame) {
+	// Faz a selective search no frame
+	vector<Rect2d> selective_search(Mat frame) {
 
 		clock_t start, end;
 		start = clock();
@@ -68,17 +69,24 @@ public:
 			}
 		}
 
-		Mat imOut = frame.clone();
+		vector < Rect2d> rects_2d;
 
-		// itereate over all the region proposals
 		for (int i = 0; i < rects.size(); i++) {
-			rectangle(imOut, rects[i], Scalar(0, 255, 0));
+			rects_2d.push_back(Rect2d(rects[i].x, rects[i].y, rects[i].width, rects[i].height));
+			//rects_2d.push_back(Rect2d(rects[i]));
 		}
-		imwrite("imagem.png", imOut);
+
+
+		//Mat imOut = frame.clone();
+
+		//for (int i = 0; i < rects.size(); i++) {
+		//	rectangle(imOut, rects[i], Scalar(0, 255, 0));
+		//}
+		//imwrite("imagem.png", imOut);
 		end = clock();
 		double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
 		//cout << "Tempo da segmentacao: " << fixed << time_taken << setprecision(5) << endl;
-		return rects;
+		return rects_2d;
 	}
 };
 
