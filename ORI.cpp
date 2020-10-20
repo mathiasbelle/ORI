@@ -17,10 +17,11 @@ int main() {
 	
 	setUseOptimized(true);
 	setNumThreads(4);
-	ReadVideo videozin("Okeanos_Explorer_ROV_Dive_July_08_2019_Bottom_Hour_1.mp4");
+	//ReadVideo videozin("Okeanos_Explorer_ROV_Dive_July_08_2019_Bottom_Hour_1.mp4");
 	//ReadVideo videozin("Okeanos_Cortado.mp4");
 	//ReadVideo videozin("Okeanos_Cortado2.mp4");
 	//ReadVideo videozin("Okeanos_Cortado.mp4");
+	ReadVideo videozin("Okeanos_Cortado4.mp4");
 
 	return 0;
 }
