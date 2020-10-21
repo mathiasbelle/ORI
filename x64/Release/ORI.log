@@ -1,57 +1,57 @@
-﻿  ORI.cpp
-C:\Users\Mathias\Documents\Faculdade\2020\2020-2\Projeto\ORI\ReadVideo.h(50,19): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-C:\Users\Mathias\Documents\Faculdade\2020\2020-2\Projeto\ORI\ReadVideo.h(51,20): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-  ReadVideo.cpp
-C:\Users\Mathias\Documents\Faculdade\2020\2020-2\Projeto\ORI\ReadVideo.h(50,19): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-C:\Users\Mathias\Documents\Faculdade\2020\2020-2\Projeto\ORI\ReadVideo.h(51,20): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+﻿  ReadVideo.cpp
+C:\Users\Mathias\Documents\Faculdade\2020\2020-2\Projeto\ORI\ReadVideo.cpp(32,18): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+C:\Users\Mathias\Documents\Faculdade\2020\2020-2\Projeto\ORI\ReadVideo.cpp(33,19): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
   Gerando código
-  1 of 584 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  1 of 585 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Finalizada a geração de código
   ORI.vcxproj -> C:\Users\Mathias\Documents\Faculdade\2020\2020-2\Projeto\ORI\x64\Release\ORI.exe
 
 Resumo do Desempenho do Projeto:
-     5759 ms C:\Users\Mathias\Documents\Faculdade\2020\2020-2\Projeto\ORI\ORI.vcxproj   1 chamadas
-               5759 ms Build                                      1 chamadas
+     2864 ms C:\Users\Mathias\Documents\Faculdade\2020\2020-2\Projeto\ORI\ORI.vcxproj   1 chamadas
+               2864 ms Build                                      1 chamadas
 
 Resumo do Desempenho do Destino:
         0 ms _ResourceCompile                           1 chamadas
         0 ms AfterLink                                  1 chamadas
+        0 ms ComputeLinkImportLibraryOutputsForClean    1 chamadas
+        0 ms ComputeLinkSwitches                        1 chamadas
+        0 ms PreLinkEvent                               1 chamadas
         0 ms MakeDirsForLink                            1 chamadas
         0 ms PrepareResourceNames                       1 chamadas
         0 ms CreateCustomManifestResourceNames          1 chamadas
+        0 ms SplitResourcesByCulture                    1 chamadas
         0 ms ComputeManifestInputsTargets               1 chamadas
         0 ms ComputeLinkInputsFromProject               1 chamadas
+        0 ms _Link                                      1 chamadas
         0 ms ComputeCLGeneratedLinkInputs               1 chamadas
         0 ms ComputeManifestGeneratedLinkerInputs       1 chamadas
         0 ms ComputeRCGeneratedLinkInputs               1 chamadas
-        0 ms _Link                                      1 chamadas
         0 ms ComputeRCOutputs                           1 chamadas
-        0 ms ComputeLegacyManifestEmbedding             1 chamadas
+        0 ms BeforeLink                                 1 chamadas
         0 ms BuildLinkTraverse                          1 chamadas
         0 ms BuildCompile                               1 chamadas
         0 ms _BuildCompileAction                        1 chamadas
         0 ms AfterBuildCompileEvent                     1 chamadas
         0 ms AfterResourceCompile                       1 chamadas
         0 ms MakeDirsForResourceCompile                 1 chamadas
+        0 ms ComputeCLOutputs                           1 chamadas
         0 ms BeforeResourceCompile                      1 chamadas
-        0 ms _ClCompile                                 1 chamadas
-        0 ms BeforeLink                                 1 chamadas
         0 ms _ALink                                     1 chamadas
-        0 ms _Manifest                                  1 chamadas
         0 ms ResolvedXDCMake                            1 chamadas
+        0 ms _CleanGetCurrentAndPriorFileWrites         1 chamadas
         0 ms AfterBuild                                 1 chamadas
         0 ms BuildLink                                  1 chamadas
         0 ms _BuildLinkAction                           1 chamadas
         0 ms PostBuildEvent                             1 chamadas
         0 ms PrepareForRun                              1 chamadas
-        0 ms CopyFilesToOutputDirectory                 1 chamadas
         0 ms _CheckForCompileOutputs                    1 chamadas
         0 ms _CopySourceItemsToOutputDirectory          1 chamadas
         0 ms _GetCopyToOutputDirectoryItemsFromThisProject   1 chamadas
         0 ms _GetCopyToOutputDirectoryItemsFromTransitiveProjectReferences   1 chamadas
-        0 ms _PopulateCommonStateForGetCopyToOutputDirectoryItems   1 chamadas
+        0 ms _Manifest                                  1 chamadas
+        0 ms GetCopyToOutputDirectoryXamlAppDefs        1 chamadas
         0 ms _Deploy                                    1 chamadas
         0 ms _Appverifier                               1 chamadas
         0 ms CreateSatelliteAssemblies                  1 chamadas
@@ -62,90 +62,87 @@ Resumo do Desempenho do Destino:
         0 ms _XdcMake                                   1 chamadas
         0 ms MakeDirsForXdcMake                         1 chamadas
         0 ms ComputeCLCompileGeneratedXDCFiles          1 chamadas
-        0 ms AfterClCompile                             1 chamadas
-        0 ms SelectClCompile                            1 chamadas
+        0 ms _PopulateCommonStateForGetCopyToOutputDirectoryItems   1 chamadas
+        0 ms _ClCompile                                 1 chamadas
         0 ms Build                                      1 chamadas
         0 ms PreBuildEvent                              1 chamadas
-        0 ms SelectCustomBuild                          1 chamadas
-        0 ms _PrepareForReferenceResolution             1 chamadas
         0 ms _SelectedFiles                             1 chamadas
+        0 ms AfterClCompile                             1 chamadas
+        0 ms BeforeBuildGenerateSources                 1 chamadas
         0 ms BuildGenerateSourcesTraverse               1 chamadas
+        0 ms SetTelemetryEnvironmentVariables           1 chamadas
         0 ms ResolveReferences                          1 chamadas
         0 ms AfterResolveReferences                     1 chamadas
         0 ms ResolveAssemblyReferences                  1 chamadas
-        0 ms ComputeCustomBuildOutput                   1 chamadas
         0 ms ExpandSDKReferences                        1 chamadas
+        0 ms BeforeResolveReferences                    1 chamadas
+        0 ms ResolveSDKReferences                       1 chamadas
+        0 ms SetCABuildNativeEnvironmentVariables       1 chamadas
         0 ms _CheckWindowsSDKInstalled                  1 chamadas
         0 ms GetResolvedWinMD                           1 chamadas
         0 ms GetReferenceAssemblyPaths                  1 chamadas
         0 ms GetFrameworkPaths                          1 chamadas
         0 ms PrepareProjectReferences                   1 chamadas
+        0 ms _GetProjectReferenceTargetFrameworkProperties   1 chamadas
         0 ms _SplitProjectReferencesByFileExistence     1 chamadas
-        0 ms BeforeResolveReferences                    1 chamadas
-        0 ms ResolveSDKReferences                       1 chamadas
-        0 ms CopyFileToFolders                          1 chamadas
+        0 ms AssignProjectConfiguration                 1 chamadas
         0 ms _PrepareForBuild                           1 chamadas
+        0 ms ComputeCustomBuildOutput                   1 chamadas
+        0 ms SelectCustomBuild                          1 chamadas
+        0 ms BeforeClCompile                            1 chamadas
+        0 ms ComputeCLInputPDBName                      1 chamadas
+        0 ms CopyFileToFolders                          1 chamadas
+        0 ms WarnCompileDuplicatedFilename              1 chamadas
+        0 ms BuildGenerateSources                       1 chamadas
         0 ms _BuildGenerateSourcesAction                1 chamadas
         0 ms AfterBuildGenerateSourcesEvent             1 chamadas
         0 ms AfterBuildGenerateSources                  1 chamadas
-        0 ms BuildCompileTraverse                       1 chamadas
-        0 ms _Midl                                      1 chamadas
-        0 ms BeforeClCompile                            1 chamadas
-        0 ms ComputeCLInputPDBName                      1 chamadas
-        0 ms AfterMidl                                  1 chamadas
-        0 ms _Xsd                                       1 chamadas
-        0 ms BuildGenerateSources                       1 chamadas
         0 ms ComputeReferenceCLInput                    1 chamadas
-        0 ms MakeDirsForMidl                            1 chamadas
+        0 ms _Midl                                      1 chamadas
+        0 ms AfterMidl                                  1 chamadas
         0 ms ComputeMIDLGeneratedCompileInputs          1 chamadas
-        1 ms _GetProjectReferenceTargetFrameworkProperties   1 chamadas
-        1 ms FixupCLCompileOptions                      1 chamadas
-        1 ms ComputeLinkImportLibraryOutputsForClean    1 chamadas
-        1 ms IncrementalClean                           1 chamadas
-        1 ms RegisterOutput                             1 chamadas
-        1 ms GetCopyToOutputDirectoryXamlAppDefs        1 chamadas
-        1 ms GetCopyToOutputDirectoryItems              1 chamadas
-        1 ms AssignTargetPaths                          1 chamadas
-        1 ms DoLinkOutputFilesMatch                     1 chamadas
-        1 ms SetCABuildNativeEnvironmentVariables       1 chamadas
-        1 ms SplitResourcesByCulture                    1 chamadas
-        1 ms BeforeBuildGenerateSources                 1 chamadas
+        0 ms MakeDirsForMidl                            1 chamadas
+        0 ms _Xsd                                       1 chamadas
+        0 ms MakeDirsForCl                              1 chamadas
+        0 ms SelectClCompile                            1 chamadas
+        0 ms FixupCLCompileOptions                      1 chamadas
+        0 ms FindReferenceAssembliesForReferences       1 chamadas
+        1 ms CopyFilesToOutputDirectory                 1 chamadas
+        1 ms CustomBuild                                1 chamadas
+        1 ms _PrepareForReferenceResolution             1 chamadas
         1 ms FinalizeBuildStatus                        1 chamadas
+        1 ms ComputeLegacyManifestEmbedding             1 chamadas
+        1 ms RegisterOutput                             1 chamadas
         1 ms SetBuildDefaultEnvironmentVariables        1 chamadas
-        1 ms FindReferenceAssembliesForReferences       1 chamadas
-        1 ms ComputeCLOutputs                           1 chamadas
-        2 ms _CleanGetCurrentAndPriorFileWrites         1 chamadas
-        2 ms AssignProjectConfiguration                 1 chamadas
-        3 ms ComputeLinkSwitches                        1 chamadas
-        3 ms WarnCompileDuplicatedFilename              1 chamadas
-        4 ms MakeDirsForCl                              1 chamadas
-        5 ms CustomBuild                                1 chamadas
-        6 ms SetTelemetryEnvironmentVariables           1 chamadas
-        9 ms PrepareForBuild                            1 chamadas
-       12 ms InitializeBuildStatus                      1 chamadas
-       14 ms _CheckForInvalidConfigurationAndPlatform   1 chamadas
-       17 ms ResolveProjectReferences                   1 chamadas
-       22 ms PreLinkEvent                               1 chamadas
-     1139 ms Link                                       1 chamadas
-     4500 ms ClCompile                                  1 chamadas
+        1 ms GetCopyToOutputDirectoryItems              1 chamadas
+        1 ms ResolveProjectReferences                   1 chamadas
+        1 ms AssignTargetPaths                          1 chamadas
+        1 ms BuildCompileTraverse                       1 chamadas
+        1 ms IncrementalClean                           1 chamadas
+        1 ms DoLinkOutputFilesMatch                     1 chamadas
+        2 ms _CheckForInvalidConfigurationAndPlatform   1 chamadas
+        2 ms InitializeBuildStatus                      1 chamadas
+        7 ms PrepareForBuild                            1 chamadas
+      809 ms Link                                       1 chamadas
+     2029 ms ClCompile                                  1 chamadas
 
 Resumo do Desempenho da Tarefa:
-        0 ms Delete                                     2 chamadas
+        0 ms Message                                    3 chamadas
+        0 ms FindUnderPath                              5 chamadas
+        0 ms ConvertToAbsolutePath                      1 chamadas
+        0 ms CallTarget                                 2 chamadas
         0 ms AssignCulture                              1 chamadas
-        0 ms AssignTargetPath                           7 chamadas
         0 ms RemoveDuplicates                           2 chamadas
-        0 ms MakeDir                                    9 chamadas
+        0 ms WriteLinesToFile                           2 chamadas
+        0 ms Delete                                     2 chamadas
+        0 ms MSBuild                                    1 chamadas
+        0 ms AssignProjectConfiguration                 1 chamadas
         0 ms ReadLinesFromFile                          2 chamadas
-        1 ms Message                                    3 chamadas
-        1 ms MSBuild                                    1 chamadas
-        1 ms WriteLinesToFile                           2 chamadas
-        1 ms CallTarget                                 2 chamadas
-        1 ms ConvertToAbsolutePath                      1 chamadas
+        1 ms GetOutOfDateItems                          3 chamadas
         1 ms CheckVCToolsetVersion                      1 chamadas
-        1 ms FindUnderPath                              5 chamadas
-        1 ms AssignProjectConfiguration                 1 chamadas
-        2 ms SetEnv                                     8 chamadas
-        4 ms GetOutOfDateItems                          3 chamadas
-       12 ms Touch                                      2 chamadas
-     1139 ms Link                                       1 chamadas
-     4499 ms CL                                         1 chamadas
+        1 ms SetEnv                                     8 chamadas
+        1 ms AssignTargetPath                           7 chamadas
+        1 ms MakeDir                                    9 chamadas
+        2 ms Touch                                      2 chamadas
+      809 ms Link                                       1 chamadas
+     2028 ms CL                                         1 chamadas

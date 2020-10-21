@@ -22,6 +22,7 @@ int main() {
 	//ReadVideo videozin("Okeanos_Cortado2.mp4");
 	//ReadVideo videozin("Okeanos_Cortado.mp4");
 	ReadVideo videozin("Okeanos_Cortado4.mp4");
+	videozin.read_video("Okeanos_Cortado4.mp4");
 
 	return 0;
 }
