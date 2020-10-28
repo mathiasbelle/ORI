@@ -2,6 +2,7 @@
 #include <iostream>
 #include <time.h>
 #include <fstream>
+#include <cmath>
 #include <opencv2/core.hpp>
 #include <opencv2/opencv.hpp>
 #include <opencv2/videoio.hpp>
@@ -28,7 +29,7 @@ private:
 		// Bbox atual
 		Rect2d bbox;
 		// Bbox anterior
-		Rect2d prev_bbox;
+		Rect2d prev_bbox[4];
 		// Status do rastreamento
 		bool status;
 		// ID do elemento
@@ -36,7 +37,9 @@ private:
 		// Contador de quantos frames que ele esta sendo rastreado
 		int frame_counter = 0;
 		// Frame em que o objeto entrou
-		int entry_frame;
+		Mat entry_frame;
+		// Frame em que o objeto foi detectado
+		int first_frame;
 	};
 
 public:
