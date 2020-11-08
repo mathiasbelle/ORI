@@ -19,6 +19,6 @@ public:
 	Segmentation();
 
 	// Faz a selective search no frame
-	vector<Rect2d> selective_search(Mat frame);
+	vector<Rect2d> selective_search(Mat frame, int k);
 };
 

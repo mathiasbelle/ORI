@@ -3,6 +3,7 @@
 #include <time.h>
 #include <fstream>
 #include <cmath>
+#include <locale>
 #include <opencv2/core.hpp>
 #include <opencv2/opencv.hpp>
 #include <opencv2/videoio.hpp>
@@ -40,13 +41,18 @@ private:
 		Mat entry_frame;
 		// Frame em que o objeto foi detectado
 		int first_frame;
+		// Quantidade de frames desde que o objeto perdeu o tracking
+		int exit_counter = 0;
+		// Frame que o objeto saiu
+		int last_frame;
+		bool first_exit = true;
 	};
 
 public:
 	ReadVideo(string videoName);
 
 	// Le e processa o video
-	bool read_video(string video_name);
+	bool read_video(string video_name, int min_time, int min_width, int min_height, int frames_to_skip);
 
 };
 

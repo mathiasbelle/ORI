@@ -1,0 +1,48 @@
+Recuperou ID 9
+Elemento detectado no tempo 1 segundos. ID = 3
+Recuperou ID 10
+Elemento detectado no tempo 1 segundos. ID = 5
+Elemento detectado no tempo 1 segundos. ID = 8
+Recuperou ID 23
+Elemento detectado no tempo 3 segundos. ID = 15
+Recuperou ID 26
+Elemento detectado no tempo 7 segundos. ID = 60
+Recuperou ID 80
+Elemento detectado no tempo 9 segundos. ID = 76
+Elemento detectado no tempo 10 segundos. ID = 88
+Elemento detectado no tempo 10 segundos. ID = 89
+Elemento detectado no tempo 11 segundos. ID = 95
+Recuperou ID 60
+Elemento detectado no tempo 13 segundos. ID = 109
+Recuperou ID 60
+Recuperou ID 60
+Elemento detectado no tempo 16 segundos. ID = 130
+Apagou ID = 60 no tempo 16 segundos
+Recuperou ID 95
+Recuperou ID 95
+Elemento detectado no tempo 19 segundos. ID = 150
+Elemento detectado no tempo 21 segundos. ID = 156
+Apagou ID = 95 no tempo 22 segundos
+Elemento detectado no tempo 23 segundos. ID = 159
+Recuperou ID 159
+Recuperou ID 88
+Recuperou ID 159
+Recuperou ID 88
+Recuperou ID 159
+Apagou ID = 159 no tempo 28 segundos
+Recuperou ID 130
+Elemento detectado no tempo 29 segundos. ID = 164
+Recuperou ID 130
+Recuperou ID 130
+Elemento detectado no tempo 31 segundos. ID = 175
+Apagou ID = 3 no tempo 31 segundos
+Apagou ID = 5 no tempo 31 segundos
+Apagou ID = 76 no tempo 31 segundos
+Apagou ID = 88 no tempo 31 segundos
+Apagou ID = 109 no tempo 31 segundos
+Apagou ID = 130 no tempo 31 segundos
+Apagou ID = 150 no tempo 31 segundos
+Apagou ID = 156 no tempo 31 segundos
+Apagou ID = 164 no tempo 31 segundos
+Apagou ID = 175 no tempo 31 segundos
+Quantidade de objetos detectados: 16

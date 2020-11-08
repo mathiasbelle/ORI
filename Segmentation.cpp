@@ -8,7 +8,7 @@ Segmentation::Segmentation() {
 
 }
 
-vector<Rect2d> Segmentation::selective_search(Mat frame) {
+vector<Rect2d> Segmentation::selective_search(Mat frame, int k) {
 
 	clock_t start, end;
 	start = clock();
@@ -31,7 +31,7 @@ vector<Rect2d> Segmentation::selective_search(Mat frame) {
 	// Set input image
 	selective_search->setBaseImage(frame);
 	// Select single strategy, with k = 850, its faster, and produces less, but more important, results
-	selective_search->switchToSingleStrategy(850);
+	selective_search->switchToSingleStrategy(k);
 
 	// creates a Rect vector to store the ractangles that selective search finds
 	vector<Rect> rects;
