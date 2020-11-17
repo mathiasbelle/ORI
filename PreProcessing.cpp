@@ -51,8 +51,8 @@ Mat PreProcessing::pre_process(Mat frame) {
 	}
 
 	// ========================================== LIMIARIZACAO ORIGINAL
-	//imwrite("orignal.png", frame);
-	//imwrite("cropped.png", cropped);
+	imwrite("quadro_orignal.png", frame);
+	imwrite("quadro_cortado.png", cropped);
 	//imwrite("img.png", inputFrame);
 	Mat blurred_frame;
 	//GaussianBlur(inputFrame, blurredFrame, Size(11, 11), 0, 0);

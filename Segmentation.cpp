@@ -42,6 +42,13 @@ vector<Rect2d> Segmentation::selective_search(Mat frame, int k) {
 		return left.area() > right.area();
 		}
 	);
+
+	Mat imOut = frame.clone();
+	for (int i = 0; i < rects.size(); i++) {
+		rectangle(imOut, rects[i], Scalar(0, 255, 0));
+	}
+	imwrite("Segmentacao_Original.png", imOut);
+
 	// Removes the rect that encompasses the whole image
 	rects.erase(rects.begin());
 
@@ -56,6 +63,13 @@ vector<Rect2d> Segmentation::selective_search(Mat frame, int k) {
 			}
 		}
 	}
+
+	imOut = frame.clone();
+	for (int i = 0; i < rects.size(); i++) {
+		rectangle(imOut, rects[i], Scalar(0, 255, 0));
+	}
+	imwrite("Segmentacao_Sem_Interpolacao.png", imOut);
+
 
 	vector < Rect2d> rects_2d;
 
