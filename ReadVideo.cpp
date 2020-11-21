@@ -20,7 +20,7 @@ ReadVideo::ReadVideo(string videoName) {
 
 }
 
-bool ReadVideo::read_video(string videoName, int min_time, int min_width, int min_height, int frames_to_skip) {
+bool ReadVideo::read_video(string videoName, int min_time, int min_width, int min_height, int frames_to_skip, bool lower_res) {
 	clock_t start_func, end_func;
 	start_func = clock();
 	cout << "VideoName: " << videoName<<endl;
@@ -89,8 +89,8 @@ bool ReadVideo::read_video(string videoName, int min_time, int min_width, int mi
 	//imwrite("Preprocessed.png", im_out);
 	//Mat frame_pre_processed;
 	// Realiza o pre-processamento do primeiro frame
-	preprocessed_frame = pre_processing.pre_process(frame);
-	int ss_k = 850;
+	preprocessed_frame = pre_processing.pre_process(frame, lower_res);
+	int ss_k = 300;
 	rectangles = segmentation.selective_search(preprocessed_frame, ss_k);
 	vector<Rect2d> previous_trackers;
 	vector<TrackerElement> tracker_vector;
@@ -150,12 +150,12 @@ bool ReadVideo::read_video(string videoName, int min_time, int min_width, int mi
 
 		//inputVideo.read(frame);
 		cout << "Loop " << frame_counter << ".Tempo:" << floor(frame_counter/fps) << endl;
-		preprocessed_frame = pre_processing.pre_process(frame);
+		preprocessed_frame = pre_processing.pre_process(frame, lower_res);
 		preprocessed_frame.copyTo(frame_copy);
 		// Realiza o pre-processamento e a segmentacao de n em n frames,
 		// definidos pela variavel frames to skip
 		if (frame_counter % frames_to_skip == 0) {
-			cin >> lol;
+			//cin >> lol;
 			rectangles = segmentation.selective_search(preprocessed_frame, ss_k);
 			
 			//cout << "Fez SSSSSSSSSSSSSSSSSSSSSSSSS" << endl;
@@ -180,7 +180,6 @@ bool ReadVideo::read_video(string videoName, int min_time, int min_width, int mi
 			if (tracker_vector[i].status) {
 				tracker_vector[i].bbox = new_bbox;
 				tracker_vector[i].exit_counter = 0;
-				tracker_vector[i].first_exit = true;
 				//tracker_vector[i].prev_bbox[0] = tracker_vector[i].bbox;
 				//tracker_vector[i].prev_bbox[1] = tracker_vector[i].prev_bbox[0];
 				//tracker_vector[i].prev_bbox[2] = tracker_vector[i].prev_bbox[1];
@@ -194,15 +193,9 @@ bool ReadVideo::read_video(string videoName, int min_time, int min_width, int mi
 					objects_counter++;
 					imwrite(img_output_string, tracker_vector[i].entry_frame);
 				}
-			// Se o tracker nao seguir por 30 frames, tira do vector
-			} else if (tracker_vector[i].frame_counter < min_time) {
+			// Se o tracker nao seguir pelo tempo minimo, tira do vector
+			} else if (tracker_vector[i].frame_counter <= min_time) {
 				tracker_vector.erase(tracker_vector.begin() + i);
-				//cout << "Apagou ID = " << tracker_vector[i].id << endl;
-				//if (tracker_vector[i].frame_counter >= 3) {
-					//csv_file << tracker_vector[i].id << ";" << tracker_vector[i].entry_frame << ";" << frame_counter << "\n";
-					//cout << "Apagou ID = " << tracker_vector[i].id << endl;
-				//}
-				//tracker_vector.erase(tracker_vector.begin() + i);
 
 			} else {
 				// Grava o frame que o objeto saiu
@@ -251,7 +244,8 @@ bool ReadVideo::read_video(string videoName, int min_time, int min_width, int mi
 					for (int k = 0; k < 4; k++) {
 						 //Tem interpolacao entre o bbox atual e algum outro que estava sendo rastreado,
 						 //logo, inicializa o tracker de novo
-						if (tracker_vector[i].status == 0 && (rectangles[j] & tracker_vector[i].prev_bbox[k]).area() > 0) {
+						if (tracker_vector[i].status == 0 && (rectangles[j] & tracker_vector[i].prev_bbox[k]).area() > 0 && tracker_vector[i].first_recovery
+							&& tracker_vector[i].frame_counter < min_time && rectangles[j].width >= min_width && rectangles[j].height >= min_height) {
 							//tracker_vector[i].tracker = TrackerKCF::create();
 							tracker_vector[i].tracker->init(preprocessed_frame, rectangles[j]);
 							tracker_vector[i].bbox = rectangles[j];
@@ -259,10 +253,19 @@ bool ReadVideo::read_video(string videoName, int min_time, int min_width, int mi
 							tracker_vector[i].prev_bbox[1] = tracker_vector[i].bbox;
 							tracker_vector[i].prev_bbox[2] = tracker_vector[i].bbox;
 							tracker_vector[i].prev_bbox[3] = tracker_vector[i].bbox;
-							tracker_vector[i].status = 1;
+							tracker_vector[i].entry_frame = Mat(preprocessed_frame, rectangles[j]);
+							tracker_vector[i].status = true;
 							tracker_vector[i].exit_counter = 0;
+							tracker_vector[i].first_recovery = false;
 							cout << "Recuperou ID " << tracker_vector[i].id << endl;
 							out_log << "Recuperou ID " + to_string(tracker_vector[i].id) + "\n";
+							cout << "Elemento detectado no frame " << tracker_vector[i].first_frame << ". ID = " << tracker_vector[i].id << endl;
+							out_log << "Elemento detectado no tempo " + to_string(frame_counter / fps) + " segundos. ID = " + to_string(tracker_vector[i].id) + "\n";
+							//img_output_string = "Imagens_Objetos\\objeto_ID_" + to_string(tracker_vector[i].id) + "_Entrada.png";
+							img_output_string = dir_name + "\\objeto_ID_" + to_string(tracker_vector[i].id) + "_Entrada.png";
+							tracker_vector[i].frame_counter = min_time + 1;
+							objects_counter++;
+							imwrite(img_output_string, tracker_vector[i].entry_frame);
 							rectangles.erase(rectangles.begin() + j);
 							j--;
 							break;
@@ -350,16 +353,19 @@ bool ReadVideo::read_video(string videoName, int min_time, int min_width, int mi
 		}
 	}
 
+	end_func = clock();
+	time_taken = double(end_func - start_func) / double(CLOCKS_PER_SEC);
 	cout << "Quantidade de objetos detectados: " << objects_counter << endl;
-	out_log << "Quantidade de objetos detectados: " << objects_counter << "\n";
+	out_log << "Quantidade de objetos detectados: " << objects_counter 
+			<< "Tempo do loop: " << time_taken << " segundos.\n";
 	//csv_file << "Total Objetos;" << objects_counter << "\n";
 
 	csv_file.close();
 	out_log.close();
 	inputVideo.release();
 	//output_video.release();
-	end_func = clock();
-	time_taken = double(end_func - start_func) / double(CLOCKS_PER_SEC);
+	
+	
 	cout << "Fim do loop. Tempo: " << time_taken << endl;
 	return true;
 }

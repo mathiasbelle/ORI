@@ -27,6 +27,6 @@ public:
 	PreProcessing();
 
 	// Realiza operacoes de pre-processamento no frame
-	Mat pre_process(Mat frame);
+	Mat pre_process(Mat frame, bool lower_res);
 };
 

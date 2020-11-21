@@ -37,22 +37,28 @@ PreProcessing::PreProcessing() {
 
 //}
 
-Mat PreProcessing::pre_process(Mat frame) {
+Mat PreProcessing::pre_process(Mat frame, bool lower_res) {
 	//cvtColor(frame, inputFrame, COLOR_BGR2GRAY);
 	Mat cropped;
 	if (frame.cols == 1920 && frame.rows == 1080) {
-		resize(frame, frame, Size(), 0.6667, 0.667, INTER_AREA);
-		//Mat crop_rect(frame, Rect(2, 0, 1908, 857));
-		Mat crop_rect(frame, Rect(0, 125, 1279, 450));
-		crop_rect.copyTo(cropped);
+		if (lower_res) {
+			resize(frame, frame, Size(), 0.6667, 0.667, INTER_AREA);
+			//Mat crop_rect(frame, Rect(2, 0, 1908, 857));
+			Mat crop_rect(frame, Rect(0, 125, 1279, 450));
+			crop_rect.copyTo(cropped);
+		}else{
+			Mat crop_rect(frame, Rect(0, 198, 1872, 662));
+			crop_rect.copyTo(cropped);
+		}
+
 	} else {
 		Mat crop_rect(frame, Rect(35, 90, 1180, 630));
 		crop_rect.copyTo(cropped);
 	}
 
 	// ========================================== LIMIARIZACAO ORIGINAL
-	imwrite("quadro_orignal.png", frame);
-	imwrite("quadro_cortado.png", cropped);
+	//imwrite("quadro_orignal.png", frame);
+	//imwrite("quadro_cortado.png", cropped);
 	//imwrite("img.png", inputFrame);
 	Mat blurred_frame;
 	//GaussianBlur(inputFrame, blurredFrame, Size(11, 11), 0, 0);

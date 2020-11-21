@@ -46,14 +46,15 @@ private:
 		int exit_counter = 0;
 		// Frame que o objeto saiu
 		int last_frame;
-		bool first_exit = true;
+		// Flag para impedir que um objeto seja recuperado mais de uma vez
+		bool first_recovery = true;
 	};
 
 public:
 	ReadVideo(string videoName);
 
 	// Le e processa o video
-	bool read_video(string video_name, int min_time, int min_width, int min_height, int frames_to_skip);
+	bool read_video(string video_name, int min_time, int min_width, int min_height, int frames_to_skip, bool lower_res);
 
 };
 
