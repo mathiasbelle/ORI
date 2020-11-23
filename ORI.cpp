@@ -27,11 +27,11 @@ int main() {
 	//videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\IATAP_LEG01_6K1338_HIGH01_090.M2T", 30, 30, 30, 4);
 	//videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\IATAP_LEG01_6K1338_HIGH02_097.M2T", 30, 30, 30, 4);
 	//videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\\IATAP_LEG01_6K1338_HIGH02_098.M2T", 30, 30, 30, 4);
-	//videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\\IATAP_LEG01_6K1338_HIGH01_072.M2T", 5, 30, 30, 4, true);
-	//videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\IATAP_LEG01_6K1338_HIGH01_090.M2T", 5, 30, 30, 4, true);
-	//videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\\IATAP_LEG01_6K1338_HIGH01_095.M2T", 5, 30, 30, 4, true);
+	//videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\\IATAP_LEG01_6K1338_HIGH01_072.M2T", 30, 30, 30, 4, true);
+	//videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\IATAP_LEG01_6K1338_HIGH01_090.M2T", 30, 30, 30, 4, true);
+	//videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\\IATAP_LEG01_6K1338_HIGH01_095.M2T", 30, 30, 30, 4, true);
+	//videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\\Okeanos_Cortado_18_54.mp4", 30, 30, 30, 4, true);
 	videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\\Okeanos_Cortado_18_54.mp4", 30, 30, 30, 4, true);
-	//videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\\Okeanos_Explorer_ROV_0_2m_32s.mp4", 30, 30, 30, 4, true);
 	//videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\\IATAP_LEG01_6K1338_HIGH02_052.M2T", 30, 30, 30, 4);
 	//videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\\IATAP_LEG01_6K1338_HIGH02_072.M2T", 30, 30, 30, 4);
 	//videozin.read_video("C:\\Users\\Mathias\\Documents\\Faculdade\\2020\\2020-2\\Projeto\\Videos\\\IATAP_LEG01_6K1338_HIGH02_090.M2T", 30, 30, 30, 4);

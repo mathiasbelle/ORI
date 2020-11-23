@@ -90,7 +90,7 @@ bool ReadVideo::read_video(string videoName, int min_time, int min_width, int mi
 	//Mat frame_pre_processed;
 	// Realiza o pre-processamento do primeiro frame
 	preprocessed_frame = pre_processing.pre_process(frame, lower_res);
-	int ss_k = 300;
+	int ss_k = 850;
 	rectangles = segmentation.selective_search(preprocessed_frame, ss_k);
 	vector<Rect2d> previous_trackers;
 	vector<TrackerElement> tracker_vector;
@@ -326,10 +326,10 @@ bool ReadVideo::read_video(string videoName, int min_time, int min_width, int mi
 		//waitKey(0);
 		//getchar();
 		//inputVideo.read(frame);
-	}//while(!frame.empty());
+	}
 
 	for (int i = 0; i < tracker_vector.size(); i++) {
-		if (tracker_vector[i].frame_counter >= fps) {
+		if (tracker_vector[i].frame_counter >= min_time) {
 			if (tracker_vector[i].exit_counter == 0) {
 				tracker_vector[i].last_frame = frame_counter;
 			}
