@@ -1,3 +1,5 @@
+// Classe Segmentation, que reliza a operacao de segmentacao nos quadros
+
 #pragma once
 #include <iostream> 
 #include <time.h> 
@@ -5,9 +7,7 @@
 #include <opencv2/core/ocl.hpp>
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
-#include <opencv2/videoio.hpp>
 #include <opencv2/ximgproc/segmentation.hpp>
-#include "opencv2/highgui.hpp"
 
 using namespace std;
 using namespace cv;

@@ -1,3 +1,4 @@
+// Classe ReadVideo, que reliza a leitura dos quadros do video e o rastreamento dos objetos
 #pragma once
 #include <iostream>
 #include <time.h>
@@ -18,10 +19,6 @@ using namespace cv;
 
 
 class ReadVideo {
-private:
-	Mat inputFrame;
-	Mat outputFrame;
-	string videoName;
 
 	// Estrutura de um elemento para rastreamento, incluindo o Tracking, bounding box
 	// status do rastreamento e id do elemento
@@ -51,7 +48,7 @@ private:
 	};
 
 public:
-	ReadVideo(string videoName);
+	ReadVideo();
 
 	// Le e processa o video
 	bool read_video(string video_name, int min_time, int min_width, int min_height, int frames_to_skip, bool lower_res);
